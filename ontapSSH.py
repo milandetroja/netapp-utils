@@ -219,3 +219,10 @@ class NetappFiler:
             self._delete_volume(mirror[0], mirror[1])
         self._delete_volume(vserver, vol_name)
         
+    def delete_qos_policy(self, qosPolicy):
+        '''
+        Remove qos_Policy group
+        '''
+        cmd = "qos policy-group delete -policy-group %s" %(qosPolicy)
+        self._ssh_cmd(cmd)
+        
